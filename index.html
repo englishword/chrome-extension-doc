@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Lingose IPSM Notation ? Privacy Policy</title>
+  <style>
+    * { box-sizing: border-box; }
+    body { margin: 0; color: #172532; background: #f8fafc; font: 16px/1.65 system-ui, sans-serif; }
+    main { max-width: 860px; margin: auto; padding: 32px 24px 56px; }
+    h1 { font-size: 30px; line-height: 1.25; }
+    h2 { margin-top: 32px; font-size: 22px; line-height: 1.35; }
+    a { color: #135da8; text-underline-offset: 3px; }
+    a:focus-visible { outline: 2px solid #226fd0; outline-offset: 3px; }
+    code { font-size: 0.9em; overflow-wrap: anywhere; }
+    table { width: 100%; border-collapse: collapse; background: #fff; }
+    th, td { padding: 10px 12px; border: 1px solid #d7e4ef; text-align: left; vertical-align: top; }
+    th { background: #eef5fb; }
+    .table-scroll { overflow-x: auto; }
+  </style>
+</head>
+<body>
+<main>
+<h1>Lingose IPSM Notation — Privacy Policy</h1>
+
+<p>Last updated: 2026-10-06. Applies to extension version 0.1.0.</p>
+
+<p>Lingose IPSM Notation processes English page text locally in your browser. It does not upload page text, browsing history, typed input or personal information to the developer or third parties. It contains no analytics, advertising trackers or remote executable code.</p>
+
+<h2>Page access and processing</h2>
+
+<p>Opening the popup reads saved settings, identifies the current tab and performs a read-only check of the current document&#x27;s support and annotation status. It does not start scanning or converting page text.</p>
+
+<p>The current tab URL is used locally to check page support and target the document. It is not uploaded or saved. The popup explains this check and local text processing before the Apply button.</p>
+
+<p>When you click <strong>Apply to current page</strong>, a local content script reads eligible text in the top-level HTML document. Text batches are sent through Chrome&#x27;s internal extension messaging to this extension&#x27;s background worker, converted using bundled algorithms and dictionary data, and returned to the page. These messages stay inside the browser; they are not network uploads. Page text may itself contain personal information, which follows the same local processing path.</p>
+
+<p>The annotation traversal excludes input controls, editable regions, hidden text, code, scripts, styles, iframes and Shadow DOM. It does not convert form values or HTML attributes. While the document is activated, a local observer handles added or changed text. Browser mutation records may briefly include changes in excluded regions before filtering; those records are not uploaded or persisted by the extension.</p>
+
+<p>Original text, annotation results and restoration records are held in running memory, not saved in extension storage. <strong>Restore current page</strong> stops processing that document and releases its restoration records as restoration finishes. Website changes are preserved where the extension no longer owns the text. Disabling the feature stops activated sessions and attempts restoration; suspended pages respond when they resume. Refreshing or closing a page ends that document&#x27;s session.</p>
+
+<h2>Saved settings</h2>
+
+<p>The extension saves only these fields in <code>chrome.storage.local</code>:</p>
+
+<div class="table-scroll"><table>
+<tr><th>Setting</th><th>Purpose</th></tr>
+<tr><td><code>enabled</code></td><td>Whether IPS notation is enabled.</td></tr>
+<tr><td><code>skipTop</code></td><td>Your saved frequency threshold (<code>skip_top</code>).</td></tr>
+<tr><td><code>schemaVersion</code></td><td>The settings format version.</td></tr>
+<tr><td><code>disableRevision</code></td><td>A counter that prevents an older page session from resuming after disable.</td></tr>
+</table></div>
+
+<p>Settings persist across browser restarts. The extension does not use Chrome sync or session storage to save product data. It does not persist page text, annotation results, restoration records, page URLs, browsing history or form input. Removing the extension removes its local settings, as described in <a href="https://developer.chrome.com/docs/extensions/reference/api/storage#storage-areas">Chrome&#x27;s storage documentation</a>.</p>
+
+<h2>Network and external links</h2>
+
+<p>Conversion works offline using resources installed with the extension. Dictionary files are loaded from the extension package. No external server, Python service or cloud API is used for annotation, and page content is not sold or shared.</p>
+
+<p>The popup offers links to <a href="https://lingose.com/">Lingose</a> and <a href="https://github.com/englishword">GitHub</a>. They open in a new tab only when you click them. Visiting these sites makes ordinary website requests and is governed by those sites&#x27; privacy policies. They are learning resources, not annotation services.</p>
+
+<p>This policy describes the extension&#x27;s behavior. Chrome and websites you visit may perform their own storage and network activity independently.</p>
+
+<h2>Permissions</h2>
+
+<div class="table-scroll"><table>
+<tr><th>Permission</th><th>Use</th></tr>
+<tr><td><a href="https://developer.chrome.com/docs/extensions/develop/concepts/activeTab"><code>activeTab</code></a></td><td>Temporary access to the current tab after you invoke the extension.</td></tr>
+<tr><td><code>scripting</code></td><td>A read-only document check and injection of the bundled content script when you Apply.</td></tr>
+<tr><td><code>storage</code></td><td>Saving settings and notifying activated pages when the feature is disabled.</td></tr>
+</table></div>
+
+<p>The production extension requests no all-sites host access, browsing-history permission or automatic scripts on every page. Opening a website alone does not activate annotation.</p>
+
+<h2>Limited use</h2>
+
+<p>Lingose IPSM Notation&#x27;s use of user data complies with the Chrome Web Store User Data Policy, including its Limited Use requirements. Data is used only for local IPS annotation, page support checks and restoration. The extension does not sell or transfer user data, use it for advertising or creditworthiness decisions, or provide the developer or other people with access to it.</p>
+
+<h2>Contact and changes</h2>
+
+<p>For project information or privacy questions, use <a href="https://lingose.com/">Lingose</a> or the project&#x27;s <a href="https://github.com/englishword">GitHub organization</a>. Future changes to processing or storage will be reflected in this policy and the extension&#x27;s disclosures before release.</p>
+</main>
+</body>
+</html>
